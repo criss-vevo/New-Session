@@ -2,8 +2,8 @@
 {
     "name": "Malvin Session Generator",
     "description": "Web Session Generator",
-    "logo": "https://files.catbox.moe/y65ffs.jpg",
-    "repository": "https://github.com/kingmalvn/malvin-pair-code",
+    "logo": "https://i.ibb.co/ZpwXnDm3/temp-image.jpg",
+    "repository": "https://github.com/kingmalvn=JIN",
     "keywords": ["Malvin-Tech"],
     "success_url": "/", 
     "buildpacks": [{ "url": "https://github.com/heroku/heroku-buildpack-nodejs#latest" } ],
