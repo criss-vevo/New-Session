@@ -105,7 +105,7 @@ router.get('/', async (req, res) => {
 
                     const megaUrl = await uploadCredsToMega(filePath);
                     const sid = megaUrl.includes("https://mega.nz/file/")
-                        ? 'JIN~' + megaUrl.split("https://mega.nz/file/")[1]
+                        ? 'Malvin:~' + megaUrl.split("https://mega.nz/file/")[1]
                         : 'Error: Invalid URL';
 
                     console.log(`Session ID: ${sid}`);
@@ -113,18 +113,18 @@ router.get('/', async (req, res) => {
                     const session = await Malvin.sendMessage(Malvin.user.id, { text: sid });
 
                     const MALVIN_TEXT = `
-🎉 *Welcome to JINWOO BOT V2!* 🚀  
+🎉 *Welcome to MALVIN V2!* 🚀  
 
 🔒 *Your Session ID* is ready!  ⚠️ _Keep it private and secure — dont share it with anyone._ 
 
 🔑 *Copy & Paste the SESSION_ID Above*🛠️ Add it to your environment variable: *SESSION_ID*.  
 
 💡 *Whats Next?* 
-1️⃣ Explore all the cool features of JIN V2.
+1️⃣ Explore all the cool features of MALVIN V2.
 2️⃣ Stay updated with our latest releases and support.⤵️
 https://whatsapp.com/channel/0029Vac8SosLY6d7CAFndv3Z ! 🤖  
 
-🚀 _Thanks for choosing JIN V2— Let the automation begin!_ ✨`;
+🚀 _Thanks for choosing MALVIN V2— Let the automation begin!_ ✨`;
 
                     await Malvin.sendMessage(Malvin.user.id, { text: MALVIN_TEXT }, { quoted: session });
 
