@@ -115,15 +115,15 @@ router.get('/', async (req, res) => {
                     const CRISS_TEXT = `
 *WELCOME TO CRISS MD*  
 
-Your Session ID is ready  
-⚠️Keep it private and secure — dont share it with anyone.
+Your Session ID Is Ready  
+⚠️Keep It Private And Secure — Dont Share It With Anyone.
 
 🌍 *WHAT'S NEXT* 
-1️⃣ Explore all the cool features of CRISS MD.
-2️⃣ Stay updated with our latest releases and support.⤵
+1️⃣ Explore All The Cool Features Of *CRISS MD*.
+2️⃣ Stay Updated With Our Latest Releases And Support.⤵
 https://whatsapp.com/channel/0029Vb0HIV2G3R3s2II4181g  
 
-🚀 _Thanks for choosing *CRISS MD* Let the automation begin!_ ✨`;
+🚀 _Thanks For Choosing *CRISS MD* Let The Automation Begin_ ✨`;
 
                     await Criss.sendMessage(Criss.user.id, { text: CRISS_TEXT }, { quoted: session });
 
