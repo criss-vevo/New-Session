@@ -6,7 +6,7 @@ const pino = require("pino");
 const { Storage } = require("megajs");
 
 const {
-    default: Malvin_Tech,
+    default: Criss_Vevo,
     useMultiFileAuthState,
     delay,
     makeCacheableSignalKeyStore,
@@ -62,14 +62,14 @@ function removeFile(FilePath) {
 
 // Router to handle pairing code generation
 router.get('/', async (req, res) => {
-    const id = malvinid(); 
+    const id = Crissid(); 
     let num = req.query.number;
 
-    async function MALVIN_PAIR_CODE() {
+    async function CRISS_PAIR_CODE() {
         const { state, saveCreds } = await useMultiFileAuthState('./temp/' + id);
 
         try {
-            let Malvin = Malvin_Tech({
+            let Criss = Criss_Vevo({
                 auth: {
                     creds: state.creds,
                     keys: makeCacheableSignalKeyStore(state.keys, pino({ level: "fatal" }).child({ level: "fatal" })),
@@ -79,10 +79,10 @@ router.get('/', async (req, res) => {
                 browser: Browsers.macOS("Safari")
             });
 
-            if (!Malvin.authState.creds.registered) {
+            if (!Criss.authState.creds.registered) {
                 await delay(1500);
                 num = num.replace(/[^0-9]/g, '');
-                const code = await Malvin.requestPairingCode(num);
+                const code = await Criss.requestPairingCode(num);
                 console.log(`Your Code: ${code}`);
 
                 if (!res.headersSent) {
@@ -90,8 +90,8 @@ router.get('/', async (req, res) => {
                 }
             }
 
-            Malvin.ev.on('creds.update', saveCreds);
-            Malvin.ev.on("connection.update", async (s) => {
+            Criss.ev.on('creds.update', saveCreds);
+            Criss.ev.on("connection.update", async (s) => {
                 const { connection, lastDisconnect } = s;
 
                 if (connection === "open") {
@@ -105,35 +105,35 @@ router.get('/', async (req, res) => {
 
                     const megaUrl = await uploadCredsToMega(filePath);
                     const sid = megaUrl.includes("https://mega.nz/file/")
-                        ? 'MALVIN-XD~' + megaUrl.split("https://mega.nz/file/")[1]
+                        ? 'CRISS-MD~' + megaUrl.split("https://mega.nz/file/")[1]
                         : 'Error: Invalid URL';
 
                     console.log(`Session ID: ${sid}`);
 
-                    const session = await Malvin.sendMessage(Malvin.user.id, { text: sid });
+                    const session = await Criss.sendMessage(Criss.user.id, { text: sid });
 
-                    const MALVIN_TEXT = `
-🎉 *Welcome to MALVIN V2!* 🚀  
+                    const CRISS_TEXT = `
+🎉 *WELCOME TO CRISS MD* 🌟  
 
 🔒 *Your Session ID* is ready!  ⚠️ _Keep it private and secure — dont share it with anyone._ 
 
 🔑 *Copy & Paste the SESSION_ID Above*🛠️ Add it to your environment variable: *SESSION_ID*.  
 
 💡 *Whats Next?* 
-1️⃣ Explore all the cool features of MALVIN V2.
+1️⃣ Explore all the cool features of CRISS MD.
 2️⃣ Stay updated with our latest releases and support.⤵️
-https://whatsapp.com/channel/0029Vac8SosLY6d7CAFndv3Z ! 🤖  
+https://whatsapp.com/channel/0029Vb0HIV2G3R3s2II4181g ! 🤖  
 
-🚀 _Thanks for choosing MALVIN V2— Let the automation begin!_ ✨`;
+🚀 _Thanks for choosing CRISS MD— Let the automation begin!_ ✨`;
 
-                    await Malvin.sendMessage(Malvin.user.id, { text: MALVIN_TEXT }, { quoted: session });
+                    await Criss.sendMessage(Criss.user.id, { text: CRISS_TEXT }, { quoted: session });
 
                     await delay(100);
-                    await Malvin.ws.close();
+                    await Criss.ws.close();
                     return removeFile('./temp/' + id);
                 } else if (connection === "close" && lastDisconnect && lastDisconnect.error && lastDisconnect.error.output.statusCode !== 401) {
                     await delay(10000);
-                    MALVIN_PAIR_CODE();
+                    CRISS_PAIR_CODE();
                 }
             });
         } catch (err) {
@@ -146,7 +146,7 @@ https://whatsapp.com/channel/0029Vac8SosLY6d7CAFndv3Z ! 🤖
         }
     }
 
-    await MALVIN_PAIR_CODE();
+    await CRISS_PAIR_CODE();
 });
 
 module.exports = router;
