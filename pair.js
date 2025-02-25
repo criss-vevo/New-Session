@@ -65,7 +65,7 @@ router.get('/', async (req, res) => {
     const id = malvinid(); 
     let num = req.query.number;
 
-    async function MALVIN_PAIR_CODE() {
+    async function CRISS_PAIR_CODE() {
         const { state, saveCreds } = await useMultiFileAuthState('./temp/' + id);
 
         try {
