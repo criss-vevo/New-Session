@@ -105,7 +105,7 @@ router.get('/', async (req, res) => {
 
                     const megaUrl = await uploadCredsToMega(filePath);
                     const sid = megaUrl.includes("https://mega.nz/file/")
-                        ? 'CRISS-MD~' + megaUrl.split("https://mega.nz/file/")[1]
+                        ? '𝐂𝐑𝐈𝐒𝐒-𝐌𝐃~' + megaUrl.split("https://mega.nz/file/")[1]
                         : 'Error: Invalid URL';
 
                     console.log(`Session ID: ${sid}`);
@@ -113,17 +113,24 @@ router.get('/', async (req, res) => {
                     const session = await Criss.sendMessage(Criss.user.id, { text: sid });
 
                     const CRISS_TEXT = `
-*WELCOME TO CRISS MD*  
+╔═══════════════════
+ 𝐖𝐄𝐋𝐂𝐎𝐌𝐄 𝐓𝐎 𝐂𝐑𝐈𝐒𝐒 𝐌𝐃 
+ ✅ 𝐘𝐨𝐮𝐫 𝐒𝐞𝐬𝐬𝐢𝐨𝐧 𝐈𝐝 𝐈𝐬 𝐑𝐞𝐚𝐝𝐲
+╚═══════════════════
 
-Your Session ID Is Ready  
-⚠️Keep It Private And Secure — Dont Share It With Anyone.
+╔═══════════════════
+𝐂𝐇𝐀𝐍𝐍𝐄𝐋 𝐋𝐈𝐍𝐊 𝐇𝐄𝐑𝐄
+https://whatsapp.com/channel/0029Vb0HIV2G3R3s2II4181g
+╚═══════════════════
 
-🌍 *WHAT'S NEXT* 
-1️⃣ Explore All The Cool Features Of *CRISS MD*.
-2️⃣ Stay Updated With Our Latest Releases And Support.⤵
-https://whatsapp.com/channel/0029Vb0HIV2G3R3s2II4181g  
+╔═══════════════════
+☉︎𝐖𝐏-𝐌𝐄-𝐎𝐖𝐍𝐄𝐑®️
+https://wa.me/message/NY5RNQQH2DYTN1
+╚═══════════════════
 
-🚀 _Thanks For Choosing *CRISS MD* Let The Automation Begin_ ✨`;
+╔═══════════════════
+ 𝐓𝐡𝐚𝐧𝐤𝐬 𝐟𝐨𝐫 𝐂𝐡𝐨𝐨𝐬𝐢𝐧𝐠 𝐂𝐫𝐢𝐬𝐬 𝐌𝐝
+╚═══════════════════`;
 
                     await Criss.sendMessage(Criss.user.id, { text: CRISS_TEXT }, { quoted: session });
 
