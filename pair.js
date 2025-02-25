@@ -65,7 +65,7 @@ router.get('/', async (req, res) => {
     const id = malvinid(); 
     let num = req.query.number;
 
-    async function MALVIN_PAIR_CODE() {
+    async function CRISS_PAIR_CODE() {
         const { state, saveCreds } = await useMultiFileAuthState('./temp/' + id);
 
         try {
@@ -120,7 +120,7 @@ router.get('/', async (req, res) => {
 🔑 *Copy & Paste the SESSION_ID Above*🛠️ Add it to your environment variable: *SESSION_ID*.  
 
 💡 *Whats Next?* 
-1️⃣ Explore all the cool features of MALVIN V2.
+1️⃣ Explore all the cool features of CRISS MD.
 2️⃣ Stay updated with our latest releases and support.⤵️
 https://whatsapp.com/channel/0029Vac8SosLY6d7CAFndv3Z ! 🤖  
 
